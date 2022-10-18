@@ -1,5 +1,13 @@
 import styles from "./styles.module.scss";
 
-const Input = () => <input type="text" className={styles["input"]} />;
+type PropsType = {
+  placeholder?: string;
+};
+
+const Input = (props: PropsType) => {
+  const { ...rest } = props;
+
+  return <input type="text" className={styles["input"]} {...rest} />;
+};
 
 export default Input;
