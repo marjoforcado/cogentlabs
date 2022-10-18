@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 import { useGetPlacesQuery } from "../store/api/slice";
 import { increment } from "../store/counter/slice";
-import { Input } from "../ui/components";
+import { Card, Input } from "../ui/components";
 
 const Home: NextPage = () => {
   const count = useAppSelector((state) => state.counter.value);
@@ -16,6 +16,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Input />
+      <Card />
     </>
   );
 };

@@ -1,4 +1,5 @@
+import Card from "./Card";
 import Input from "./Input";
 import Text from "./Text";
 
-export { Input, Text };
+export { Card, Input, Text };
