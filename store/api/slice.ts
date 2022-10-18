@@ -15,7 +15,7 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getPlaces: builder.query<any, void>({
       query: () =>
-        `/places/search?ll=35.66544525437135,139.73779834232948&radius=1000&categories=13065`,
+        `/places/search?ll=35.66544525437135,139.73779834232948&radius=1000&categories=13065&limit=6`,
     }),
   }),
 });

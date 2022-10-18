@@ -1,0 +1,5 @@
+.page {
+  &__grid {
+    @apply grid grid-cols-4 gap-4 max-w-5xl mx-auto;
+  }
+}

@@ -1,11 +1,23 @@
 .card {
-  @apply border border-gray-200 flex flex-col w-60;
+  @apply border border-gray-300 flex flex-col w-60;
+
+  &--is-loading {
+    @apply animate-pulse;
+  }
 
   &__media {
-    @apply h-36 bg-gray-200 relative overflow-hidden;
+    @apply h-36 bg-gray-300 relative overflow-hidden;
   }
 
   &__body {
     @apply h-44 bg-white flex flex-col gap-2 p-2;
+  }
+
+  &__loader {
+    @apply h-2 rounded-md bg-gray-300;
+
+    &--title {
+      @apply w-1/2;
+    }
   }
 }

@@ -5,9 +5,11 @@ import { useGetPlacesQuery } from "../store/api/slice";
 import { increment } from "../store/counter/slice";
 import { Card, Input } from "../ui/components";
 
+import styles from "./styles.module.scss";
+
 const Home: NextPage = () => {
   const count = useAppSelector((state) => state.counter.value);
-  const { data } = useGetPlacesQuery();
+  const { data, isFetching } = useGetPlacesQuery();
 
   const dispatch = useAppDispatch();
 
@@ -16,7 +18,16 @@ const Home: NextPage = () => {
   return (
     <>
       <Input />
-      <Card />
+      <div className={styles["page__grid"]}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </>
   );
 };
