@@ -5,10 +5,35 @@ import type { AppProps } from "next/app";
 
 import store from "../store";
 
-function MyApp({ Component, pageProps }: AppProps) {
+import { NextPageWithLayout } from "../ui/types/PageWithLayout";
+import { DefaultLayout } from "../ui/layouts";
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const { layout = "default" } = Component;
+
+  const App = () => {
+    switch (layout) {
+      case "default": {
+        return (
+          <DefaultLayout>
+            <Component {...pageProps} />
+          </DefaultLayout>
+        );
+      }
+      case "none":
+      default: {
+        return <Component {...pageProps} />;
+      }
+    }
+  };
+
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <App />
     </Provider>
   );
 }
