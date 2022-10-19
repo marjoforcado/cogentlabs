@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 import { useGetPlacesQuery } from "../store/api/slice";
 import { increment } from "../store/counter/slice";
-import { Card, Input } from "../ui/components";
+import { Button, Card, Input } from "../ui/components";
 
 import styles from "./styles.module.scss";
 
@@ -13,11 +13,18 @@ const Home: NextPage = () => {
 
   const dispatch = useAppDispatch();
 
+  console.log(isFetching);
   console.log(data);
 
   return (
-    <>
-      <Input />
+    <div className={styles["page"]}>
+      <div className={styles["page__search"]}>
+        <Input
+          placeholder="Search something..."
+          className={styles["page__input"]}
+        />
+        <Button>Search</Button>
+      </div>
       <div className={styles["page__grid"]}>
         <Card />
         <Card />
@@ -25,10 +32,8 @@ const Home: NextPage = () => {
         <Card />
         <Card />
         <Card />
-        <Card />
-        <Card />
       </div>
-    </>
+    </div>
   );
 };
 
