@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
+import Text from "../Text";
 
 import styles from "./styles.module.scss";
 
@@ -8,31 +9,15 @@ type PropsType = {
 };
 
 const Card = (props: PropsType) => {
-  const { isLoading } = props;
-
   return (
-    <div
-      className={classNames(styles["card"], {
-        [styles["card--is-loading"]]: isLoading,
-      })}
-    >
-      <div className={styles["card__media"]}></div>
+    <div className={styles["card"]}>
+      <div className={styles["card__media"]}>{/* <Image /> */}</div>
       <div className={styles["card__body"]}>
-        {isLoading ? (
-          <>
-            <div
-              className={classNames(
-                styles["card__loader"],
-                styles["card__loader--title"]
-              )}
-            />
-            <div className={classNames(styles["card__loader"])} />
-            <div className={classNames(styles["card__loader"])} />
-            <div className={classNames(styles["card__loader"])} />
-          </>
-        ) : (
-          "here"
-        )}
+        <Text size="lg">Title</Text>
+        <Text size="sm">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum,
+          minus.
+        </Text>
       </div>
     </div>
   );
