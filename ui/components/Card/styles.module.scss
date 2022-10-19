@@ -1,23 +1,11 @@
 .card {
-  @apply border border-gray-300 flex flex-col w-60;
-
-  &--is-loading {
-    @apply animate-pulse;
-  }
+  @apply max-w-sm h-24 border p-3 border-neutral-300 bg-white flex gap-3 items-center rounded-md;
 
   &__media {
-    @apply h-36 bg-gray-300 relative overflow-hidden;
+    @apply h-16 w-16 bg-neutral-200 rounded-full flex-none;
   }
 
   &__body {
-    @apply h-44 bg-white flex flex-col gap-2 p-2;
-  }
-
-  &__loader {
-    @apply h-2 rounded-md bg-gray-300;
-
-    &--title {
-      @apply w-1/2;
-    }
+    @apply flex flex-col gap-1;
   }
 }
