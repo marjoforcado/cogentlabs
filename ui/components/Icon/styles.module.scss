@@ -1,0 +1,7 @@
+.icon {
+  @apply h-5 w-5;
+
+  & > path {
+    @apply fill-black;
+  }
+}

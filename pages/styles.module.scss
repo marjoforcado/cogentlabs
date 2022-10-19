@@ -2,11 +2,15 @@
   @apply flex flex-col gap-8 px-3 py-5;
 
   &__search {
-    @apply flex gap-4 max-w-xl mx-auto  w-full;
+    @apply flex gap-4 max-w-xl mx-auto w-full;
   }
 
   &__input {
     @apply w-full;
+
+    & > input {
+      @apply w-full;
+    }
   }
 
   &__grid {
