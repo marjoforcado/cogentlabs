@@ -1,5 +1,9 @@
 .page {
+  @apply px-3;
+
   &__grid {
-    @apply grid grid-cols-4 gap-4 max-w-5xl mx-auto;
+    @apply grid grid-cols-1 gap-4 max-w-5xl mx-auto;
+    @apply sm:grid-cols-2;
+    @apply lg:grid-cols-3;
   }
 }

@@ -1,5 +1,5 @@
 .card {
-  @apply max-w-sm h-24 border p-3 border-neutral-300 bg-white flex gap-3 items-center rounded-md;
+  @apply max-w-lg h-24 border p-3 border-neutral-300 bg-white flex gap-3 items-center rounded-md;
 
   &__media {
     @apply h-16 w-16 bg-neutral-200 rounded-full flex-none;
