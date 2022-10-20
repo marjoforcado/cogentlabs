@@ -2,7 +2,7 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 type PropsType = {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   centerContent?: boolean;
 };
 
