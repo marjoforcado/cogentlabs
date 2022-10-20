@@ -1,15 +1,19 @@
 .gallery {
-  @apply max-w-full flex gap-2;
+  @apply max-w-full flex flex-col gap-2;
+  @apply lg:flex-row flex-1;
 
   &__stage {
-    @apply flex-1 bg-gray-300;
+    @apply h-52 bg-gray-300;
+    @apply lg:flex-1 lg:h-auto;
   }
 
   &__grid {
-    @apply grid grid-cols-2 gap-2;
+    @apply grid grid-cols-4 gap-2;
+    @apply lg:grid-cols-2;
   }
 
   &__square {
-    @apply w-52 h-52 bg-gray-300;
+    @apply w-full h-28 bg-gray-300;
+    @apply lg:w-52 lg:h-52;
   }
 }
