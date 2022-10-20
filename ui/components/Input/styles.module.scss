@@ -1,0 +1,11 @@
+.input {
+  @apply relative;
+
+  &__icon {
+    @apply absolute top-4 left-2;
+  }
+
+  &__field {
+    @apply bg-white border border-neutral-300 rounded-md py-3 pr-3 pl-8;
+  }
+}

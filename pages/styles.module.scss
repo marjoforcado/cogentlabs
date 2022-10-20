@@ -1,0 +1,21 @@
+.page {
+  @apply flex flex-col gap-8 px-3 py-5;
+
+  &__search {
+    @apply flex gap-4 max-w-xl mx-auto w-full;
+  }
+
+  &__input {
+    @apply w-full;
+
+    & > input {
+      @apply w-full;
+    }
+  }
+
+  &__grid {
+    @apply grid grid-cols-1 gap-4 max-w-5xl mx-auto;
+    @apply sm:grid-cols-2;
+    @apply lg:grid-cols-3;
+  }
+}

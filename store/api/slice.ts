@@ -1,5 +1,25 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+interface Category {
+  id: number;
+  name: string;
+  icon: {
+    prefix: string;
+    suffix: string;
+  };
+}
+
+interface Location {
+  formatted_address: string;
+}
+
+interface Place {
+  fsq_id: string;
+  categories: Category[];
+  name: string;
+  location: Location;
+}
+
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
@@ -13,9 +33,9 @@ export const apiSlice = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getPlaces: builder.query<any, void>({
+    getPlaces: builder.query<{ results: Place[] }, void>({
       query: () =>
-        `/places/search?ll=35.66544525437135,139.73779834232948&radius=1000&categories=13065`,
+        `/places/search?ll=35.66544525437135,139.73779834232948&radius=1000&categories=13065&limit=9`,
     }),
   }),
 });
