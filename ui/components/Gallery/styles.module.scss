@@ -1,0 +1,15 @@
+.gallery {
+  @apply max-w-full flex gap-2;
+
+  &__stage {
+    @apply flex-1 bg-gray-300;
+  }
+
+  &__grid {
+    @apply grid grid-cols-2 gap-2;
+  }
+
+  &__square {
+    @apply w-52 h-52 bg-gray-300;
+  }
+}

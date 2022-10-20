@@ -1,0 +1,7 @@
+.app-container {
+  @apply container;
+
+  &--is-center {
+    @apply mx-auto;
+  }
+}

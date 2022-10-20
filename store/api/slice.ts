@@ -40,7 +40,14 @@ export const apiSlice = createApi({
     getPlacesDetails: builder.query<any, void>({
       query: () => "/places/4b56877ef964a5201b1428e3",
     }),
+    getPlacesPhotos: builder.query<any, void>({
+      query: () => `/places/4b56877ef964a5201b1428e3/photos`,
+    }),
   }),
 });
 
-export const { useGetPlacesSearchQuery, useGetPlacesDetailsQuery } = apiSlice;
+export const {
+  useGetPlacesSearchQuery,
+  useGetPlacesDetailsQuery,
+  useGetPlacesPhotosQuery,
+} = apiSlice;
