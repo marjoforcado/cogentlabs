@@ -1,5 +1,5 @@
-import styles from "./styles.module.scss";
-
-const IndexPage = () => <div>View Page</div>;
+const IndexPage = () => {
+  return <div>View Page</div>;
+};
 
 export default IndexPage;

@@ -1,14 +1,13 @@
 import type { NextPage } from "next";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import Link from "next/link";
 
-import { useGetPlacesQuery } from "../store/api/slice";
+import { useGetPlacesSearchQuery } from "../store/api/slice";
 import { Button, Card, Input } from "../ui/components";
 
 import styles from "./styles.module.scss";
-import Link from "next/link";
 
 const Home: NextPage = () => {
-  const { data } = useGetPlacesQuery();
+  const { data } = useGetPlacesSearchQuery();
 
   return (
     <div className={styles["page"]}>

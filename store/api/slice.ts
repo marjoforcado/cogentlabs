@@ -33,11 +33,14 @@ export const apiSlice = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getPlaces: builder.query<{ results: Place[] }, void>({
+    getPlacesSearch: builder.query<{ results: Place[] }, void>({
       query: () =>
         `/places/search?ll=35.66544525437135,139.73779834232948&radius=1000&categories=13065&limit=9`,
+    }),
+    getPlacesDetails: builder.query<any, void>({
+      query: () => "/places/4b56877ef964a5201b1428e3",
     }),
   }),
 });
 
-export const { useGetPlacesQuery } = apiSlice;
+export const { useGetPlacesSearchQuery, useGetPlacesDetailsQuery } = apiSlice;
