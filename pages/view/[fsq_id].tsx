@@ -32,6 +32,9 @@ const IndexPage = () => {
                 {data.details.name}
               </Text>
               <Text size="sm">{data.details.location.formatted_address}</Text>
+              {data.tips.map((tip: any) => (
+                <Text key={tip.id}>{tip.text}</Text>
+              ))}
             </div>
             <aside className={styles["page__aside"]}>
               <iframe
