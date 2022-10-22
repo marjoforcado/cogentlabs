@@ -38,10 +38,21 @@ export const apiSlice = createApi({
         `/places/search?ll=35.66544525437135,139.73779834232948&radius=1000&categories=13065&limit=9`,
     }),
     getPlacesDetails: builder.query<any, { fsq_id: string }>({
-      query: ({ fsq_id }) => `/places/${fsq_id}`,
-    }),
-    getPlacesPhotos: builder.query<any, void>({
-      query: () => `/places/4b56877ef964a5201b1428e3/photos`,
+      queryFn: async (arg, _api, _extraOptions, baseQuery) => {
+        const { fsq_id } = arg;
+
+        const details = await baseQuery(`/places/${fsq_id}`);
+        const photos = await baseQuery(`/places/${fsq_id}/photos`);
+        const tips = await baseQuery(`/places/${fsq_id}/tips`);
+
+        return {
+          data: {
+            details: details.data,
+            photos: photos.data,
+            tips: tips.data,
+          },
+        };
+      },
     }),
   }),
 });
