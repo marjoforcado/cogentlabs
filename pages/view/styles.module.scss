@@ -1,0 +1,26 @@
+.page {
+  @apply px-3;
+
+  &__flex {
+    @apply flex flex-col gap-5;
+  }
+
+  &__container {
+    @apply flex flex-col-reverse gap-5;
+    @apply lg:flex-row;
+  }
+
+  &__content {
+    @apply h-20 w-full;
+    @apply lg:flex-1;
+  }
+
+  &__aside {
+    @apply w-full;
+    @apply lg:w-[450px];
+  }
+
+  &__map {
+    @apply h-60 w-full;
+  }
+}
