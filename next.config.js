@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["ss3.4sqi.net"],
+    domains: ["fastly.4sqi.net"],
   },
 };
 

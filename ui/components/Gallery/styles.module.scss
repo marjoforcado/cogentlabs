@@ -7,6 +7,11 @@
     @apply lg:flex-1 lg:h-auto;
   }
 
+  &__stage,
+  &__square {
+    @apply relative;
+  }
+
   &__grid {
     @apply grid grid-cols-4 gap-2;
     @apply lg:grid-cols-2;

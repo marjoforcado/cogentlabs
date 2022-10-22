@@ -17,6 +17,11 @@ const IndexPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isReady]);
 
+  const images = data?.photos.map((photo: any) => ({
+    id: photo.id,
+    url: `${photo.prefix}original${photo.suffix}`,
+  }));
+
   if (isLoading || isUninitialized || isFetching) {
     return <div>Fetching...</div>;
   }
@@ -25,7 +30,7 @@ const IndexPage = () => {
     <div className={styles["page"]}>
       <Container centerContent>
         <div className={styles["page__flex"]}>
-          <Gallery />
+          <Gallery images={images} />
           <div className={styles["page__container"]}>
             <div className={styles["page__content"]}>
               <Text size="2xl" weight="semibold">
