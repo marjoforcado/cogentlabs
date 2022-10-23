@@ -3,12 +3,17 @@ import styles from "./styles.module.scss";
 
 type PropsType = {
   children: string;
+  onClick?: () => void;
 };
 
 const Button = (props: PropsType) => {
-  const { children } = props;
+  const { children, ...rest } = props;
 
-  return <button className={styles["button"]}>{children}</button>;
+  return (
+    <button className={styles["button"]} {...rest}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
