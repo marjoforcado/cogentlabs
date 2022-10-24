@@ -7,10 +7,8 @@ import styles from "./styles.module.scss";
 
 const IndexPage = () => {
   const { query, isReady } = useRouter();
-  const [trigger, results] = useLazyGetPlacesDetailsQuery();
-  const { data, isFetching, isSuccess } = results;
-
-  console.log(data);
+  const [trigger, { data, isFetching, isSuccess }] =
+    useLazyGetPlacesDetailsQuery();
 
   useEffect(() => {
     // Make sure query is available before requesting API.
@@ -26,6 +24,10 @@ const IndexPage = () => {
   }
 
   if (isSuccess) {
+    if (data.photos === undefined || data.tips === undefined) {
+      return <div>No data</div>;
+    }
+
     const images = data.photos.map((photo: any) => ({
       id: photo.id,
       url: `${photo.prefix}original${photo.suffix}`,
