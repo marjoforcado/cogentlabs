@@ -11,7 +11,7 @@
   }
 
   &__content {
-    @apply h-20 w-full;
+    @apply h-20 w-full flex flex-col gap-10 border-b border-neutral-400;
     @apply lg:flex-1;
   }
 
@@ -22,5 +22,13 @@
 
   &__map {
     @apply h-60 w-full;
+  }
+
+  &__comments {
+    @apply flex flex-col gap-3;
+  }
+
+  &__header {
+    @apply flex flex-col gap-3;
   }
 }
