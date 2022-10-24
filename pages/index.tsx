@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       );
     }
 
-    return <div>there</div>;
+    return <div>No results found</div>;
   };
 
   return (
