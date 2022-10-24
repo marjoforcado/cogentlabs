@@ -1,10 +1,13 @@
 import classNames from "classnames";
+import { ChangeEvent } from "react";
 import Icon from "../Icon";
 import styles from "./styles.module.scss";
 
 type PropsType = {
   placeholder?: string;
   className?: string;
+  name?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = (props: PropsType) => {
