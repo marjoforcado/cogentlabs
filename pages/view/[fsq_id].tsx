@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useLazyGetPlacesDetailsQuery } from "../../store/api/slice";
-import { Container, Gallery, Text } from "../../ui/components";
+import { CommentCard, Container, Gallery, Text } from "../../ui/components";
 
 import styles from "./styles.module.scss";
 
@@ -9,6 +9,8 @@ const IndexPage = () => {
   const { query, isReady } = useRouter();
   const [trigger, results] = useLazyGetPlacesDetailsQuery();
   const { data, isFetching, isSuccess } = results;
+
+  console.log(data);
 
   useEffect(() => {
     // Make sure query is available before requesting API.
@@ -29,6 +31,11 @@ const IndexPage = () => {
       url: `${photo.prefix}original${photo.suffix}`,
     }));
 
+    const tips = data.tips.map((tip: any) => ({
+      id: tip.id,
+      text: tip.text,
+    }));
+
     return (
       <div className={styles["page"]}>
         <Container centerContent>
@@ -36,10 +43,19 @@ const IndexPage = () => {
             <Gallery images={images} />
             <div className={styles["page__container"]}>
               <div className={styles["page__content"]}>
-                <Text size="2xl" weight="semibold">
-                  {data.details.name}
-                </Text>
-                <Text size="sm">{data.details.location.formatted_address}</Text>
+                <div className={styles["page__header"]}>
+                  <Text size="2xl" weight="semibold">
+                    {data.details.name}
+                  </Text>
+                  <Text size="sm">
+                    {data.details.location.formatted_address}
+                  </Text>
+                </div>
+                <div className={styles["page__comments"]}>
+                  {tips.map((tip: any) => (
+                    <CommentCard key={tip.id}>{tip.text}</CommentCard>
+                  ))}
+                </div>
               </div>
               <aside className={styles["page__aside"]}>
                 <iframe
