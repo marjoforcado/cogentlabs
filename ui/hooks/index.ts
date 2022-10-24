@@ -1,3 +1,4 @@
+import useCollapseMenu from "./useCollapseMenu";
 import useOutsideClickListener from "./useOutsideClickListener";
 
-export { useOutsideClickListener };
+export { useCollapseMenu, useOutsideClickListener };
