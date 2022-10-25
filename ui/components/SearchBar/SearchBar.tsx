@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
+import Label from "../Label";
+import Text from "../Text";
 
 import styles from "./styles.module.scss";
 
@@ -22,6 +24,18 @@ const SearchBar = () => {
           }
         />
         <Button>Search</Button>
+      </div>
+      <div className={styles["search__dropdown"]}>
+        <Text size="sm" weight="semibold">
+          Search History
+        </Text>
+        <div className={styles["search__labels"]}>
+          <Label>Label</Label>
+          <Label>Label</Label>
+          <Label>Label</Label>
+          <Label>Label</Label>
+          <Label>Label</Label>
+        </div>
       </div>
     </div>
   );
