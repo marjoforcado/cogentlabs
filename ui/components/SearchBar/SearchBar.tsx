@@ -1,16 +1,14 @@
-import classNames from "classnames";
 import { useRef, useState } from "react";
+import classNames from "classnames";
+
 import { useCollapseMenu } from "../../hooks";
-import Button from "../Button";
-import Input from "../Input";
-import Label from "../Label";
-import Text from "../Text";
+import { Button, Input, Label, Text } from "../";
 
 import styles from "./styles.module.scss";
 
 const SearchBar = () => {
-  const [form, setForm] = useState({ search: "" });
   const wrapperRef = useRef(null);
+  const [form, setForm] = useState({ search: "" });
 
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
 
@@ -29,6 +27,7 @@ const SearchBar = () => {
           }
           onFocus={() => setIsCollapsed(true)}
           onBlur={() => setIsCollapsed(false)}
+          value={form.search}
         />
         <Button>Search</Button>
       </div>

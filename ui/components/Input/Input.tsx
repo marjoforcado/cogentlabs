@@ -7,6 +7,7 @@ type PropsType = {
   placeholder?: string;
   className?: string;
   name?: string;
+  value?: any;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
