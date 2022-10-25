@@ -6,6 +6,7 @@ import Gallery from "./Gallery";
 import Icon from "./Icon";
 import Input from "./Input";
 import Label from "./Label";
+import SearchBar from "./SearchBar";
 import Text from "./Text";
 
 export {
@@ -17,5 +18,6 @@ export {
   Icon,
   Input,
   Label,
+  SearchBar,
   Text,
 };

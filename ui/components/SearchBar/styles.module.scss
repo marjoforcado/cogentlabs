@@ -1,0 +1,13 @@
+.search {
+  &__container {
+    @apply flex gap-4 max-w-xl mx-auto w-full;
+  }
+
+  &__input {
+    @apply w-full;
+
+    & > input {
+      @apply w-full;
+    }
+  }
+}

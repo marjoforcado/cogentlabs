@@ -7,7 +7,7 @@ type PropsType = {
   placeholder?: string;
   className?: string;
   name?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = (props: PropsType) => {
