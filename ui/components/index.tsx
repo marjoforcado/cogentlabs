@@ -5,6 +5,19 @@ import Container from "./Container";
 import Gallery from "./Gallery";
 import Icon from "./Icon";
 import Input from "./Input";
+import Label from "./Label";
+import SearchBar from "./SearchBar";
 import Text from "./Text";
 
-export { Button, Card, CommentCard, Container, Gallery, Icon, Input, Text };
+export {
+  Button,
+  Card,
+  CommentCard,
+  Container,
+  Gallery,
+  Icon,
+  Input,
+  Label,
+  SearchBar,
+  Text,
+};

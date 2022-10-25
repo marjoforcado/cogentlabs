@@ -7,7 +7,7 @@ export type PropsType = {
   component?: "p" | "span";
   children: string;
   className?: string;
-  size?: "base" | "lg" | "sm" | "2xl";
+  size?: "base" | "lg" | "sm" | "2xl" | "xs";
   weight?: "normal" | "semibold";
 };
 

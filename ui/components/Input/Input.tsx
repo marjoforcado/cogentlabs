@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FocusEvent } from "react";
 import Icon from "../Icon";
 import styles from "./styles.module.scss";
 
@@ -7,7 +7,10 @@ type PropsType = {
   placeholder?: string;
   className?: string;
   name?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value?: any;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
 };
 
 const Input = (props: PropsType) => {
