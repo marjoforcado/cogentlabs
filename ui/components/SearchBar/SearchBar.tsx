@@ -5,6 +5,8 @@ import { useCollapseMenu } from "../../hooks";
 import { Button, Input, Label, Text } from "../";
 
 import styles from "./styles.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { addSearchHistory } from "../../../store/search-history/slice";
 
 type PropsType = {
   onSearch: (query: string, preferCache?: boolean) => void;
@@ -13,10 +15,18 @@ type PropsType = {
 const SearchBar = (props: PropsType) => {
   const { onSearch } = props;
 
+  const dispatch = useAppDispatch();
+  const histories = useAppSelector((state) => state.searchHistory.histories);
+
   const wrapperRef = useRef(null);
   const [form, setForm] = useState({ search: "" });
 
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
+
+  const handleSearch = (preferCache: boolean) => {
+    onSearch(form.search, preferCache);
+    dispatch(addSearchHistory(form.search));
+  };
 
   return (
     <div className={styles["search"]} ref={wrapperRef}>
@@ -35,10 +45,8 @@ const SearchBar = (props: PropsType) => {
           onBlur={() => setIsCollapsed(false)}
           value={form.search}
         />
-        <Button onClick={() => onSearch(form.search)}>Search</Button>
-        <Button onClick={() => onSearch(form.search, true)}>
-          Search Cache
-        </Button>
+        <Button onClick={() => handleSearch(false)}>Search</Button>
+        <Button onClick={() => handleSearch(true)}>Search Cache</Button>
       </div>
       <div
         className={classNames(styles["search__dropdown"], {
@@ -49,11 +57,9 @@ const SearchBar = (props: PropsType) => {
           Search History
         </Text>
         <div className={styles["search__labels"]}>
-          <Label>Label</Label>
-          <Label>Label</Label>
-          <Label>Label</Label>
-          <Label>Label</Label>
-          <Label>Label</Label>
+          {histories.map((history) => (
+            <Label key={history}>{history}</Label>
+          ))}
         </div>
       </div>
     </div>
