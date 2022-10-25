@@ -14,7 +14,11 @@
   }
 
   &__dropdown {
-    @apply border border-neutral-300 rounded-md bg-white p-4 absolute top-16 w-full flex flex-col gap-3;
+    @apply hidden border border-neutral-300 rounded-md bg-white p-4 absolute top-14 w-full flex-col gap-3 shadow;
+
+    &--is-toggled {
+      @apply flex;
+    }
   }
 
   &__labels {
