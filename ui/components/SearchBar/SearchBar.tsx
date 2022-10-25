@@ -6,7 +6,13 @@ import { Button, Input, Label, Text } from "../";
 
 import styles from "./styles.module.scss";
 
-const SearchBar = () => {
+type PropsType = {
+  onSearch: (query: string, preferCache?: boolean) => void;
+};
+
+const SearchBar = (props: PropsType) => {
+  const { onSearch } = props;
+
   const wrapperRef = useRef(null);
   const [form, setForm] = useState({ search: "" });
 
@@ -29,7 +35,10 @@ const SearchBar = () => {
           onBlur={() => setIsCollapsed(false)}
           value={form.search}
         />
-        <Button>Search</Button>
+        <Button onClick={() => onSearch(form.search)}>Search</Button>
+        <Button onClick={() => onSearch(form.search, true)}>
+          Search Cache
+        </Button>
       </div>
       <div
         className={classNames(styles["search__dropdown"], {

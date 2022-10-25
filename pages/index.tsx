@@ -1,28 +1,21 @@
-import type { NextPage } from "next";
+import { NextPage } from "next";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
-
 import { useLazyGetPlacesSearchQuery } from "../store/api/slice";
-import { Button, Card, Input, SearchBar } from "../ui/components";
+import { Card, SearchBar } from "../ui/components";
 
 import styles from "./styles.module.scss";
 
 const Home: NextPage = () => {
-  const [form, setForm] = useState({
-    search: "",
-  });
-
-  const [trigger, results] = useLazyGetPlacesSearchQuery();
-
+  const [searchPlace, results] = useLazyGetPlacesSearchQuery();
   const { data: restaurants, isUninitialized, isFetching, isSuccess } = results;
 
   const renderContent = () => {
     if (isUninitialized) {
-      return <div>search something</div>;
+      return <div>Search something...</div>;
     }
 
     if (isFetching) {
-      return <div>fetching...</div>;
+      return <div>Fetching...</div>;
     }
 
     if (isSuccess && restaurants.results.length) {
@@ -48,7 +41,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles["page"]}>
-      <SearchBar />
+      <SearchBar onSearch={searchPlace} />
       {renderContent()}
     </div>
   );
