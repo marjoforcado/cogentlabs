@@ -13,7 +13,9 @@ export const historySlice = createSlice({
   initialState,
   reducers: {
     addSearchHistory: (state, action: PayloadAction<string>) => {
-      state.histories.push(action.payload);
+      if (!state.histories.includes(action.payload)) {
+        state.histories.push(action.payload);
+      }
     },
   },
 });
