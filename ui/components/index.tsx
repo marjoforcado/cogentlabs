@@ -7,6 +7,7 @@ import Gallery from "./Gallery";
 import Icon from "./Icon";
 import Input from "./Input";
 import Label from "./Label";
+import LangToggle from "./LangToggle";
 import Link from "./Link";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
@@ -22,6 +23,7 @@ export {
   Icon,
   Input,
   Label,
+  LangToggle,
   Link,
   Navbar,
   SearchBar,

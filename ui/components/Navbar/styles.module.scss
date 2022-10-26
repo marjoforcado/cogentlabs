@@ -8,4 +8,8 @@
   &__links {
     @apply flex gap-5;
   }
+
+  &__separator {
+    @apply border-r-2 border-neutral-400 pr-5;
+  }
 }

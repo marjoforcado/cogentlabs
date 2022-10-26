@@ -10,6 +10,7 @@ import {
   addSearchHistory,
   setLastQuery,
 } from "../../../store/search-history/slice";
+import { useTranslation } from "next-i18next";
 
 type PropsType = {
   onSearch: (query: string, preferCache?: boolean) => void;
@@ -17,6 +18,8 @@ type PropsType = {
 
 const SearchBar = (props: PropsType) => {
   const { onSearch } = props;
+
+  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
   const histories = useAppSelector((state) => state.searchHistory.histories);
@@ -36,7 +39,7 @@ const SearchBar = (props: PropsType) => {
     <div className={styles["search"]} ref={wrapperRef}>
       <div className={styles["search__container"]}>
         <Input
-          placeholder="Search something..."
+          placeholder={t("search_something")}
           name="search"
           className={styles["search__input"]}
           onChange={(e) =>
@@ -49,7 +52,7 @@ const SearchBar = (props: PropsType) => {
           onBlur={() => setIsCollapsed(false)}
           value={form.search}
         />
-        <Button onClick={() => handleSearch(false)}>Search</Button>
+        <Button onClick={() => handleSearch(false)}>{t("search")}</Button>
       </div>
       <div
         className={classNames(styles["search__dropdown"], {
