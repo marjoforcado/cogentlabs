@@ -14,7 +14,7 @@ const LangToggle = () => {
 
   return (
     <div ref={wrapperRef} className={styles["toggle"]}>
-      <button onClick={() => setIsCollapsed(true)}>
+      <button onClick={() => setIsCollapsed((prev) => !prev)}>
         <Text component="span" size="sm" weight="semibold">
           {locale!.toLocaleUpperCase()}
         </Text>
