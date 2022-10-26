@@ -1,5 +1,6 @@
 import Brand from "../Brand";
 import Container from "../Container";
+import LangToggle from "../LangToggle";
 import Link from "../Link";
 
 import styles from "./styles.module.scss";
@@ -9,7 +10,7 @@ const Navbar = () => (
     <Container className={styles["nav__container"]}>
       <Brand />
       <div className={styles["nav__links"]}>
-        <Link href="/">EN</Link>
+        <LangToggle />
         <Link href="/">Home</Link>
       </div>
     </Container>

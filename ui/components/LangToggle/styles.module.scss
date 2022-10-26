@@ -1,0 +1,19 @@
+.toggle {
+  @apply relative;
+
+  &__dropdown {
+    @apply hidden flex-col absolute bg-white border border-neutral-300 rounded-md top-8 left-1/2 -translate-x-1/2 shadow-md overflow-hidden;
+
+    & > a {
+      @apply px-4 py-2;
+
+      &:hover {
+        @apply bg-gray-200;
+      }
+    }
+
+    &--is-toggled {
+      @apply flex;
+    }
+  }
+}
