@@ -50,7 +50,6 @@ const SearchBar = (props: PropsType) => {
           value={form.search}
         />
         <Button onClick={() => handleSearch(false)}>Search</Button>
-        <Button onClick={() => handleSearch(true)}>Search Cache</Button>
       </div>
       <div
         className={classNames(styles["search__dropdown"], {
