@@ -19,17 +19,13 @@ const Home: NextPage = () => {
   );
 
   useEffect(() => {
-    if (lastSearchQuery) {
+    if (lastSearchQuery || isUninitialized) {
       searchPlace(lastSearchQuery, true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderContent = () => {
-    if (isUninitialized) {
-      return <div>{t("search_something")}</div>;
-    }
-
     if (isFetching) {
       return <div>Fetching...</div>;
     }
@@ -52,7 +48,7 @@ const Home: NextPage = () => {
       );
     }
 
-    return <div>No results found</div>;
+    return <></>;
   };
 
   return (

@@ -14,7 +14,9 @@ const Navbar = () => {
       <Container className={styles["nav__container"]}>
         <Brand />
         <div className={styles["nav__links"]}>
-          <LangToggle />
+          <div className={styles["nav__separator"]}>
+            <LangToggle />
+          </div>
           <Link href="/">{t("home")}</Link>
         </div>
       </Container>
