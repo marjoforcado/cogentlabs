@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useLazyGetPlacesSearchQuery } from "../store/api/slice";
+import { useAppSelector } from "../store/hooks";
 import { Card, SearchBar } from "../ui/components";
 
 import styles from "./styles.module.scss";
@@ -8,6 +10,17 @@ import styles from "./styles.module.scss";
 const Home: NextPage = () => {
   const [searchPlace, results] = useLazyGetPlacesSearchQuery();
   const { data: restaurants, isUninitialized, isFetching, isSuccess } = results;
+
+  const lastSearchQuery = useAppSelector(
+    (state) => state.searchHistory.lastQuery
+  );
+
+  useEffect(() => {
+    if (lastSearchQuery) {
+      searchPlace(lastSearchQuery, true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderContent = () => {
     if (isUninitialized) {

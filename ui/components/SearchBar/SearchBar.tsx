@@ -6,7 +6,10 @@ import { Button, Input, Label, Text } from "../";
 
 import styles from "./styles.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { addSearchHistory } from "../../../store/search-history/slice";
+import {
+  addSearchHistory,
+  setLastQuery,
+} from "../../../store/search-history/slice";
 
 type PropsType = {
   onSearch: (query: string, preferCache?: boolean) => void;
@@ -26,6 +29,7 @@ const SearchBar = (props: PropsType) => {
   const handleSearch = (preferCache: boolean) => {
     onSearch(form.search, preferCache);
     dispatch(addSearchHistory(form.search));
+    dispatch(setLastQuery(form.search));
   };
 
   return (
@@ -46,7 +50,6 @@ const SearchBar = (props: PropsType) => {
           value={form.search}
         />
         <Button onClick={() => handleSearch(false)}>Search</Button>
-        <Button onClick={() => handleSearch(true)}>Search Cache</Button>
       </div>
       <div
         className={classNames(styles["search__dropdown"], {

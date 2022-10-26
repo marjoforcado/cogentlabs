@@ -14,7 +14,7 @@ const IndexPage = () => {
   useEffect(() => {
     // Make sure query is available before requesting API.
     if (isReady) {
-      trigger(query.fsq_id as string);
+      trigger(query.fsq_id as string, true);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

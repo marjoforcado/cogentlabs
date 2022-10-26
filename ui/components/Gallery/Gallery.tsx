@@ -8,8 +8,6 @@ type PropsType = {
 const Gallery = (props: PropsType) => {
   const { images } = props;
 
-  console.log(images);
-
   return (
     <div className={styles["gallery"]}>
       <div className={styles["gallery__stage"]}>
