@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useRouter } from "next/router";
 import { useRef } from "react";
 import { useCollapseMenu } from "../../hooks";
 import Link from "../Link";
@@ -9,12 +10,13 @@ import styles from "./styles.module.scss";
 const LangToggle = () => {
   const wrapperRef = useRef(null);
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
+  const { locale } = useRouter();
 
   return (
     <div ref={wrapperRef} className={styles["toggle"]}>
       <button onClick={() => setIsCollapsed(true)}>
         <Text component="span" size="sm" weight="semibold">
-          EN
+          {locale!.toLocaleUpperCase()}
         </Text>
       </button>
       <div
