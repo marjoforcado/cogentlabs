@@ -4,13 +4,14 @@ import Text from "../Text";
 type PropsType = {
   href: string;
   children: string;
+  locale?: string;
 };
 
 const Link = (props: PropsType) => {
-  const { href, children } = props;
+  const { href, children, locale } = props;
 
   return (
-    <AppLink href={href} passHref>
+    <AppLink href={href} locale={locale} passHref>
       <a>
         <Text component="span" size="sm" weight="semibold">
           {children}

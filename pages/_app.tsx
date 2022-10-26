@@ -7,6 +7,7 @@ import store from "../store";
 
 import { NextPageWithLayout } from "../ui/types/PageWithLayout";
 import { DefaultLayout } from "../ui/layouts";
+import { appWithTranslation } from "next-i18next";
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
@@ -38,4 +39,4 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

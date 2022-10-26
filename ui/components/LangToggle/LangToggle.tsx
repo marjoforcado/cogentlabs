@@ -22,8 +22,12 @@ const LangToggle = () => {
           [styles["toggle__dropdown--is-toggled"]]: isCollapsed,
         })}
       >
-        <Link href="/">EN</Link>
-        <Link href="/">JA</Link>
+        <Link href="/" locale="en">
+          EN
+        </Link>
+        <Link href="/" locale="ja">
+          JA
+        </Link>
       </div>
     </div>
   );

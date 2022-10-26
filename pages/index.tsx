@@ -1,4 +1,6 @@
 import { NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useLazyGetPlacesSearchQuery } from "../store/api/slice";
@@ -10,6 +12,7 @@ import styles from "./styles.module.scss";
 const Home: NextPage = () => {
   const [searchPlace, results] = useLazyGetPlacesSearchQuery();
   const { data: restaurants, isUninitialized, isFetching, isSuccess } = results;
+  const { t } = useTranslation();
 
   const lastSearchQuery = useAppSelector(
     (state) => state.searchHistory.lastQuery
@@ -24,7 +27,7 @@ const Home: NextPage = () => {
 
   const renderContent = () => {
     if (isUninitialized) {
-      return <div>Search something...</div>;
+      return <div>{t("search_something")}</div>;
     }
 
     if (isFetching) {
@@ -59,5 +62,11 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale)),
+  },
+});
 
 export default Home;
