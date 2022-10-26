@@ -1,3 +1,4 @@
+import Brand from "./Brand";
 import Button from "./Button";
 import Card from "./Card";
 import CommentCard from "./CommentCard";
@@ -6,10 +7,13 @@ import Gallery from "./Gallery";
 import Icon from "./Icon";
 import Input from "./Input";
 import Label from "./Label";
+import Link from "./Link";
+import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import Text from "./Text";
 
 export {
+  Brand,
   Button,
   Card,
   CommentCard,
@@ -18,6 +22,8 @@ export {
   Icon,
   Input,
   Label,
+  Link,
+  Navbar,
   SearchBar,
   Text,
 };
