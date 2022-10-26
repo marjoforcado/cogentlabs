@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useLazyGetPlacesDetailsQuery } from "../../store/api/slice";
@@ -46,6 +47,7 @@ const IndexPage = () => {
             <div className={styles["page__container"]}>
               <div className={styles["page__content"]}>
                 <div className={styles["page__header"]}>
+                  <Link href="/">Go Back</Link>
                   <Text size="2xl" weight="semibold">
                     {data.details.name}
                   </Text>

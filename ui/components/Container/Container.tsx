@@ -2,18 +2,23 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 type PropsType = {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | string;
   centerContent?: boolean;
+  className?: string;
 };
 
 const Container = (props: PropsType) => {
-  const { children, centerContent } = props;
+  const { children, centerContent, className } = props;
 
   return (
     <div
-      className={classNames(styles["app-container"], {
-        [styles["app-container--is-center"]]: centerContent,
-      })}
+      className={classNames(
+        styles["app-container"],
+        {
+          [styles["app-container--is-center"]]: centerContent,
+        },
+        className
+      )}
     >
       {children}
     </div>

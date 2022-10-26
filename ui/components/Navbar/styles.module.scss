@@ -1,0 +1,11 @@
+.nav {
+  @apply bg-white h-12 flex justify-center items-center;
+
+  &__container {
+    @apply flex justify-between items-center;
+  }
+
+  &__links {
+    @apply flex gap-5;
+  }
+}
