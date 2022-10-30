@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import { useCollapseMenu } from "../../hooks";
@@ -35,6 +35,16 @@ const SearchBar = (props: PropsType) => {
     dispatch(setLastQuery(form.search));
   };
 
+  // TODO: Implement auto search
+  // useEffect(() => {
+  //   const delayDebounceFn = setTimeout(() => {
+  //     console.log(form.search);
+  //     // Send Axios request here
+  //   }, 500);
+
+  //   return () => clearTimeout(delayDebounceFn);
+  // }, [form.search]);
+
   return (
     <div className={styles["search"]} ref={wrapperRef}>
       <div className={styles["search__container"]}>
@@ -49,10 +59,16 @@ const SearchBar = (props: PropsType) => {
             }))
           }
           onFocus={() => setIsCollapsed(true)}
-          onBlur={() => setIsCollapsed(false)}
           value={form.search}
         />
-        <Button onClick={() => handleSearch(false)}>{t("search")}</Button>
+        <Button
+          onClick={() => {
+            handleSearch(false);
+            setIsCollapsed(false);
+          }}
+        >
+          {t("search")}
+        </Button>
       </div>
       <div
         className={classNames(styles["search__dropdown"], {
@@ -64,7 +80,19 @@ const SearchBar = (props: PropsType) => {
         </Text>
         <div className={styles["search__labels"]}>
           {histories.map((history) => (
-            <Label key={history}>{history}</Label>
+            <button
+              key={history}
+              onClick={() => {
+                onSearch(history, true);
+                setForm((prev) => ({
+                  ...prev,
+                  search: history,
+                }));
+                setIsCollapsed(false);
+              }}
+            >
+              <Label>{history}</Label>
+            </button>
           ))}
         </div>
       </div>
