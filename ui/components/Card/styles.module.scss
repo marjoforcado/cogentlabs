@@ -1,11 +1,23 @@
 .card {
-  @apply max-w-lg h-24 border p-3 border-neutral-300 bg-white flex gap-3 items-center rounded-md;
+  @apply max-w-lg h-24 border p-3 border-neutral-300 bg-white flex gap-3 items-center rounded-md w-full;
+
+  &--loading {
+    @apply animate-pulse;
+  }
 
   &__media {
     @apply h-16 w-16 bg-neutral-200 rounded-full flex-none;
   }
 
   &__body {
-    @apply flex flex-col gap-1;
+    @apply flex flex-col gap-1 w-full h-full justify-between;
+  }
+
+  &__gray {
+    @apply h-4 w-full bg-neutral-200 rounded-full;
+  }
+
+  &__title {
+    @apply w-1/2;
   }
 }

@@ -8,6 +8,7 @@ import { useAppSelector } from "../store/hooks";
 import { Card, SearchBar } from "../ui/components";
 
 import styles from "./styles.module.scss";
+import { CardLoader } from "../ui/components/Card";
 
 const Home: NextPage = () => {
   const [searchPlace, results] = useLazyGetPlacesSearchQuery();
@@ -27,13 +28,25 @@ const Home: NextPage = () => {
 
   const renderContent = () => {
     if (isFetching) {
-      return <div>Fetching...</div>;
+      return (
+        <div className={styles["page__grid"]}>
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+          <CardLoader />
+        </div>
+      );
     }
 
     if (isSuccess && restaurants.results.length) {
       return (
         <div className={styles["page__grid"]}>
-          {restaurants.results.map((restaurant) => (
+          {restaurants.results.map((restaurant: any) => (
             <Link key={restaurant.fsq_id} href={`/view/${restaurant.fsq_id}`}>
               <a>
                 <Card
