@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { FixedSizeList, VariableSizeList } from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
 import { useLazyGetPlacesDetailsQuery } from "../../store/api/slice";
 import { CommentCard, Container, Gallery, Text } from "../../ui/components";
 
@@ -56,9 +58,18 @@ const IndexPage = () => {
                   </Text>
                 </div>
                 <div className={styles["page__comments"]}>
-                  {tips.map((tip: any) => (
-                    <CommentCard key={tip.id}>{tip.text}</CommentCard>
-                  ))}
+                  <FixedSizeList
+                    height={200}
+                    width="100%"
+                    itemCount={tips.length}
+                    itemSize={100}
+                  >
+                    {({ index, style }) => (
+                      <div style={style}>
+                        <CommentCard>{tips[index].text}</CommentCard>
+                      </div>
+                    )}
+                  </FixedSizeList>
                 </div>
               </div>
               <aside className={styles["page__aside"]}>
