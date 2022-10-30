@@ -84,6 +84,10 @@ const SearchBar = (props: PropsType) => {
               key={history}
               onClick={() => {
                 onSearch(history, true);
+                setForm((prev) => ({
+                  ...prev,
+                  search: history,
+                }));
                 setIsCollapsed(false);
               }}
             >
