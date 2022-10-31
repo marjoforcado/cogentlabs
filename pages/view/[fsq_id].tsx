@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { FixedSizeList, VariableSizeList } from "react-window";
-import AutoSizer from "react-virtualized-auto-sizer";
+import { FixedSizeList } from "react-window";
 import { useLazyGetPlacesDetailsQuery } from "../../store/api/slice";
 import { CommentCard, Container, Gallery, Text } from "../../ui/components";
+import { Loader as GalleryLoader } from "../../ui/components/Gallery";
 
 import styles from "./styles.module.scss";
 
@@ -21,6 +21,16 @@ const IndexPage = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isReady]);
+
+  return (
+    <div className={styles["page"]}>
+      <Container centerContent>
+        <div className={styles["page__flex"]}>
+          <GalleryLoader />
+        </div>
+      </Container>
+    </div>
+  );
 
   if (isFetching) {
     return <div>loading</div>;
