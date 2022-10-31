@@ -1,5 +1,5 @@
 .page {
-  @apply px-3;
+  @apply px-3 py-10;
 
   &__flex {
     @apply flex flex-col gap-5;
