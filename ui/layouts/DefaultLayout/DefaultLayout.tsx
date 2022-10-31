@@ -1,4 +1,4 @@
-import { Navbar } from "../../components";
+import { Footer, Navbar } from "../../components";
 
 type PropsType = {
   children: JSX.Element;
@@ -11,6 +11,7 @@ const DefaultLayout = (props: PropsType) => {
     <>
       <Navbar />
       <main>{children}</main>
+      <Footer />
     </>
   );
 };
