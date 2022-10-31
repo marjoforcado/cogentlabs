@@ -21,7 +21,15 @@
   }
 
   &__map {
-    @apply h-60 w-full;
+    @apply h-60 w-full bg-gray-300;
+
+    &--is-loading {
+      @apply animate-pulse;
+    }
+  }
+
+  &__gmap {
+    @apply h-full w-full;
   }
 
   &__comments {
@@ -45,6 +53,6 @@
   }
 
   &__header {
-    @apply space-y-2  border-b border-neutral-400 pb-2;
+    @apply space-y-2 border-b border-neutral-400 pb-2;
   }
 }

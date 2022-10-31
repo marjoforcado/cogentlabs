@@ -15,6 +15,22 @@ const IndexPage = () => {
     url: `${photo.prefix}original${photo.suffix}`,
   }));
 
+  const renderMap = () => {
+    if (
+      data?.details.geocodes.main.latitude &&
+      data?.details.geocodes.main.longitude
+    ) {
+      return (
+        <iframe
+          src={`https://maps.google.com/maps?q=${data.details.geocodes.main.latitude},${data.details.geocodes.main.longitude}&z=18&ie=UTF8&output=embed`}
+          className={styles["page__gmap"]}
+        ></iframe>
+      );
+    }
+
+    return <></>;
+  };
+
   useEffect(() => {
     // Make sure query is available before requesting API.
     if (isReady) {
@@ -61,6 +77,15 @@ const IndexPage = () => {
               </div>
               <div className={styles["page__comments"]}>here</div>
             </div>
+            <aside className={styles["page__aside"]}>
+              <div
+                className={classNames(styles["page__map"], {
+                  [styles["page__map--is-loading"]]: isFetching,
+                })}
+              >
+                {renderMap()}
+              </div>
+            </aside>
           </div>
         </div>
       </Container>
