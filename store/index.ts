@@ -1,13 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import counterReducer from "./counter/slice";
 import searchHistoryReducer from "./search-history/slice";
 
 import { apiSlice } from "./api/slice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     searchHistory: searchHistoryReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
