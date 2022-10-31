@@ -19,3 +19,4 @@ Redux Toolkit - State management is essential for creating a serious application
 1. Form validation
 1. Auto complete
 1. Pagination
+1. I think UI could've been better
