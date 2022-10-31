@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 export type PropsType = {
   component?: "p" | "span";
-  children: string;
+  children: string | string[];
   className?: string;
   size?: "base" | "lg" | "sm" | "2xl" | "xs";
   weight?: "normal" | "semibold";
