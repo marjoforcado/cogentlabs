@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./styles.module.scss";
 
 type PropsType = {
-  images?: any[];
+  images: any[];
   isLoading?: boolean;
 };
 

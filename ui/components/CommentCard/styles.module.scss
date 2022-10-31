@@ -1,3 +1,23 @@
 .card {
   @apply p-3 rounded-md border border-neutral-300 bg-white h-20;
+
+  &__loaders {
+    @apply flex flex-col justify-between h-full;
+  }
+
+  &__loader {
+    @apply h-3 bg-gray-300 rounded-full;
+
+    &--1 {
+      @apply w-1/2;
+    }
+
+    &--2 {
+      @apply w-3/4;
+    }
+
+    &--3 {
+      @apply w-full;
+    }
+  }
 }
