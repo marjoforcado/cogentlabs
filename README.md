@@ -13,3 +13,9 @@ NextJS - is a production ready React framework, it abstracts a lot of the techni
 Tailwindcss - makes it easier for me to provide styles to my components as well as making sure that it is responsive to all devices
 
 Redux Toolkit - State management is essential for creating a serious application. Redux toolkit makes it easy for me to create and retrieve data from the cache
+
+# What was left out
+
+1. Form validation
+1. Auto complete
+1. Pagination
