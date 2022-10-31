@@ -2,6 +2,10 @@
   @apply max-w-full flex flex-col gap-2;
   @apply lg:flex-row flex-1;
 
+  &--is-loading {
+    @apply animate-pulse;
+  }
+
   &__stage {
     @apply h-52 bg-gray-300;
     @apply lg:flex-1 lg:h-auto;

@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 type PropsType = {
   children: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 const Button = (props: PropsType) => {

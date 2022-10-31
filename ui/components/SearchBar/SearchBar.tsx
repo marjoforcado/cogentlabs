@@ -14,10 +14,11 @@ import { useTranslation } from "next-i18next";
 
 type PropsType = {
   onSearch: (query: string, preferCache?: boolean) => void;
+  isLoading?: boolean;
 };
 
 const SearchBar = (props: PropsType) => {
-  const { onSearch } = props;
+  const { onSearch, isLoading } = props;
 
   const { t } = useTranslation();
 
@@ -66,6 +67,7 @@ const SearchBar = (props: PropsType) => {
             handleSearch(false);
             setIsCollapsed(false);
           }}
+          disabled={isLoading}
         >
           {t("search")}
         </Button>

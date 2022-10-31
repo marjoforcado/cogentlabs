@@ -11,7 +11,7 @@
   }
 
   &__content {
-    @apply h-20 w-full flex flex-col gap-10 border-b border-neutral-400;
+    @apply w-full flex flex-col gap-5;
     @apply lg:flex-1;
   }
 
@@ -21,10 +21,38 @@
   }
 
   &__map {
-    @apply h-60 w-full;
+    @apply h-60 w-full bg-gray-300;
+
+    &--is-loading {
+      @apply animate-pulse;
+    }
+  }
+
+  &__gmap {
+    @apply h-full w-full;
   }
 
   &__comments {
     @apply flex flex-col gap-3;
+  }
+
+  &__loaders {
+    @apply space-y-2 animate-pulse;
+  }
+
+  &__loader {
+    @apply rounded-md bg-gray-300;
+
+    &--title {
+      @apply h-9 w-36;
+    }
+
+    &--address {
+      @apply h-3 w-96;
+    }
+  }
+
+  &__header {
+    @apply space-y-2 border-b border-neutral-400 pb-2;
   }
 }
