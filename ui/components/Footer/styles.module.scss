@@ -1,0 +1,7 @@
+.footer {
+  @apply bg-white h-24 flex justify-center items-center;
+
+  &__container {
+    @apply flex justify-between items-center;
+  }
+}
