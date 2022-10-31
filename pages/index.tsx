@@ -13,7 +13,6 @@ import { CardLoader } from "../ui/components/Card";
 const Home: NextPage = () => {
   const [searchPlace, results] = useLazyGetPlacesSearchQuery();
   const { data: restaurants, isUninitialized, isFetching, isSuccess } = results;
-  const { t } = useTranslation();
 
   const lastSearchQuery = useAppSelector(
     (state) => state.searchHistory.lastQuery
@@ -66,7 +65,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles["page"]}>
-      <SearchBar onSearch={searchPlace} />
+      <SearchBar onSearch={searchPlace} isLoading={isFetching} />
       {renderContent()}
     </div>
   );
