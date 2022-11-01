@@ -18,12 +18,13 @@ const CommentCard = (props: PropsType) => {
 
   return (
     <div
+      data-testid="card"
       className={classNames(styles["card"], {
         [styles["card--is-loading"]]: isLoading,
       })}
     >
       {isLoading && (
-        <div className={styles["card__loaders"]}>
+        <div data-testid="loader" className={styles["card__loaders"]}>
           <div
             className={classNames(
               styles["card__loader"],
