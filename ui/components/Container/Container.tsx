@@ -12,6 +12,7 @@ const Container = (props: PropsType) => {
 
   return (
     <div
+      data-testid="container"
       className={classNames(
         styles["app-container"],
         {
