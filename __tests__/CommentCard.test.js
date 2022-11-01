@@ -17,5 +17,8 @@ describe("Comment Card", () => {
 
     expect(getByTestId("card")).toHaveClass("card--is-loading");
     expect(getByTestId("loader")).toHaveClass("card__loaders");
+    expect(
+      getByTestId("loader").getElementsByClassName("card__loader").length
+    ).toBe(3);
   });
 });
