@@ -13,6 +13,7 @@ const Icon = (props: PropsType) => {
     case "magnify": {
       return (
         <svg
+          data-testid="magnify"
           className={classNames(styles["icon"], className)}
           viewBox="0 0 20 20"
           fill="none"
