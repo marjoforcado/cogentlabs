@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { FixedSizeList } from "react-window";
@@ -128,5 +129,11 @@ const IndexPage = () => {
     </div>
   );
 };
+
+export const getServerSideProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale)),
+  },
+});
 
 export default IndexPage;
