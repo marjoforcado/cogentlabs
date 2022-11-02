@@ -9,7 +9,7 @@ const Label = (props: PropsType) => {
   const { children } = props;
 
   return (
-    <div className={styles["label"]}>
+    <div data-testid="label" className={styles["label"]}>
       <Text size="xs">{children}</Text>
     </div>
   );
