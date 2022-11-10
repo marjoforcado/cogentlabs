@@ -29,6 +29,9 @@ const LangToggle = () => {
           onClick={() =>
             router.push({ pathname, query }, asPath, { locale: "en" })
           }
+          className={classNames(styles["toggle__btn"], {
+            [styles["toggle__btn--active"]]: locale === "en",
+          })}
         >
           EN
         </button>
@@ -36,6 +39,9 @@ const LangToggle = () => {
           onClick={() =>
             router.push({ pathname, query }, asPath, { locale: "ja" })
           }
+          className={classNames(styles["toggle__btn"], {
+            [styles["toggle__btn--active"]]: locale === "ja",
+          })}
         >
           JA
         </button>

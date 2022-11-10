@@ -4,16 +4,16 @@
   &__dropdown {
     @apply hidden flex-col absolute bg-white border border-neutral-300 rounded-md top-8 left-1/2 -translate-x-1/2 shadow-md overflow-hidden z-10;
 
-    & > button {
-      @apply px-4 py-2;
-
-      &:hover {
-        @apply bg-gray-200;
-      }
-    }
-
     &--is-toggled {
       @apply flex;
+    }
+  }
+
+  &__btn {
+    @apply px-4 py-2 hover:bg-gray-200;
+
+    &--active {
+      @apply bg-gray-800 text-white font-bold hover:bg-gray-800;
     }
   }
 }
