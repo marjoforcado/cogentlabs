@@ -12,6 +12,7 @@ const Gallery = (props: PropsType) => {
 
   return (
     <div
+      data-testid="gallery"
       className={classNames(styles["gallery"], {
         [styles["gallery--is-loading"]]: isLoading,
       })}
