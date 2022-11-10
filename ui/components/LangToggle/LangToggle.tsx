@@ -10,7 +10,8 @@ import styles from "./styles.module.scss";
 const LangToggle = () => {
   const wrapperRef = useRef(null);
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
-  const { locale } = useRouter();
+  const router = useRouter();
+  const { asPath, pathname, query, locale } = router;
 
   return (
     <div ref={wrapperRef} className={styles["toggle"]}>
@@ -24,12 +25,26 @@ const LangToggle = () => {
           [styles["toggle__dropdown--is-toggled"]]: isCollapsed,
         })}
       >
-        <Link href="/" locale="en">
+        <button
+          onClick={() =>
+            router.push({ pathname, query }, asPath, { locale: "en" })
+          }
+          className={classNames(styles["toggle__btn"], {
+            [styles["toggle__btn--active"]]: locale === "en",
+          })}
+        >
           EN
-        </Link>
-        <Link href="/" locale="ja">
+        </button>
+        <button
+          onClick={() =>
+            router.push({ pathname, query }, asPath, { locale: "ja" })
+          }
+          className={classNames(styles["toggle__btn"], {
+            [styles["toggle__btn--active"]]: locale === "ja",
+          })}
+        >
           JA
-        </Link>
+        </button>
       </div>
     </div>
   );
