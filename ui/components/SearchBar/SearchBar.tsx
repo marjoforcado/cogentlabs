@@ -17,6 +17,9 @@ type PropsType = {
   isLoading?: boolean;
 };
 
+// number, is invalid
+// blank, space
+
 const SearchBar = (props: PropsType) => {
   const { onSearch, isLoading } = props;
 
@@ -27,6 +30,7 @@ const SearchBar = (props: PropsType) => {
 
   const wrapperRef = useRef(null);
   const [form, setForm] = useState({ search: "" });
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
 
@@ -35,6 +39,23 @@ const SearchBar = (props: PropsType) => {
     dispatch(addSearchHistory(form.search));
     dispatch(setLastQuery(form.search));
   };
+
+  const validate = () => {
+    if (!!+form.search) {
+      setErrorMessage(`Query can't be a number.`);
+    } else {
+      if (form.search.trim() === "") {
+        setErrorMessage(`Cannot be blank space.`);
+      } else {
+        setErrorMessage(null);
+      }
+    }
+  };
+
+  useEffect(() => {
+    validate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form]);
 
   // TODO: Implement auto search
   // useEffect(() => {
@@ -53,12 +74,12 @@ const SearchBar = (props: PropsType) => {
           placeholder={t("search_something")}
           name="search"
           className={styles["search__input"]}
-          onChange={(e) =>
+          onChange={(e) => {
             setForm((prev) => ({
               ...prev,
               [e.target.name]: e.target.value,
-            }))
-          }
+            }));
+          }}
           onFocus={() => setIsCollapsed(true)}
           value={form.search}
         />
@@ -67,11 +88,14 @@ const SearchBar = (props: PropsType) => {
             handleSearch(false);
             setIsCollapsed(false);
           }}
-          disabled={isLoading}
+          disabled={isLoading || Boolean(errorMessage)}
         >
           {t("search")}
         </Button>
       </div>
+      {errorMessage && (
+        <div className={styles["search__message"]}>{errorMessage}</div>
+      )}
       <div
         className={classNames(styles["search__dropdown"], {
           [styles["search__dropdown--is-toggled"]]: isCollapsed,
