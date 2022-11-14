@@ -11,7 +11,6 @@ import {
   setLastQuery,
 } from "../../../store/search-history/slice";
 import { useTranslation } from "next-i18next";
-import useValidate from "../../hooks/useValidate";
 
 type PropsType = {
   onSearch: (query: string, preferCache?: boolean) => void;
@@ -28,7 +27,6 @@ const SearchBar = (props: PropsType) => {
 
   const wrapperRef = useRef(null);
   const [form, setForm] = useState({ search: "" });
-  // const [errorMessage] = useValidate(form);
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
 
   const handleSearch = (preferCache: boolean) => {
@@ -50,47 +48,44 @@ const SearchBar = (props: PropsType) => {
   return (
     <div className={styles["search"]} ref={wrapperRef}>
       <Form formValues={form}>
-        {({ formState, setFormState, errorMessage }: any) => {
-          console.log(formState);
-          return (
-            <>
-              <div className={styles["search__container"]}>
-                <Input
-                  placeholder={t("search_something")}
-                  name="search"
-                  className={styles["search__input"]}
-                  onChange={(e) => {
-                    setForm((prev) => ({
-                      ...prev,
-                      [e.target.name]: e.target.value,
-                    }));
-                    setFormState((prev: any) => ({
-                      ...prev,
-                      isPristine: false,
-                      isDirty: true,
-                    }));
-                  }}
-                  onFocus={() => setIsCollapsed(true)}
-                  value={form.search}
-                />
-                <Button
-                  onClick={() => {
-                    handleSearch(false);
-                    setIsCollapsed(false);
-                  }}
-                  disabled={
-                    isLoading || (formState.isDirty && Boolean(errorMessage))
-                  }
-                >
-                  {t("search")}
-                </Button>
-              </div>
-              {formState.isDirty && Boolean(errorMessage) && (
-                <div className={styles["search__message"]}>{errorMessage}</div>
-              )}
-            </>
-          );
-        }}
+        {({ formState, setFormState, errorMessage }: any) => (
+          <>
+            <div className={styles["search__container"]}>
+              <Input
+                placeholder={t("search_something")}
+                name="search"
+                className={styles["search__input"]}
+                onChange={(e) => {
+                  setForm((prev) => ({
+                    ...prev,
+                    [e.target.name]: e.target.value,
+                  }));
+                  setFormState((prev: any) => ({
+                    ...prev,
+                    isPristine: false,
+                    isDirty: true,
+                  }));
+                }}
+                onFocus={() => setIsCollapsed(true)}
+                value={form.search}
+              />
+              <Button
+                onClick={() => {
+                  handleSearch(false);
+                  setIsCollapsed(false);
+                }}
+                disabled={
+                  isLoading || (formState.isDirty && Boolean(errorMessage))
+                }
+              >
+                {t("search")}
+              </Button>
+            </div>
+            {formState.isDirty && Boolean(errorMessage) && (
+              <div className={styles["search__message"]}>{errorMessage}</div>
+            )}
+          </>
+        )}
       </Form>
       <div
         className={classNames(styles["search__dropdown"], {
