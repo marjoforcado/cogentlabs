@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import classNames from "classnames";
 
 import { useCollapseMenu } from "../../hooks";
@@ -11,14 +11,12 @@ import {
   setLastQuery,
 } from "../../../store/search-history/slice";
 import { useTranslation } from "next-i18next";
+import useValidate from "../../hooks/useValidate";
 
 type PropsType = {
   onSearch: (query: string, preferCache?: boolean) => void;
   isLoading?: boolean;
 };
-
-// number, is invalid
-// blank, space
 
 const SearchBar = (props: PropsType) => {
   const { onSearch, isLoading } = props;
@@ -30,8 +28,7 @@ const SearchBar = (props: PropsType) => {
 
   const wrapperRef = useRef(null);
   const [form, setForm] = useState({ search: "" });
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
+  const [errorMessage] = useValidate(form);
   const { isCollapsed, setIsCollapsed } = useCollapseMenu(wrapperRef);
 
   const handleSearch = (preferCache: boolean) => {
@@ -39,23 +36,6 @@ const SearchBar = (props: PropsType) => {
     dispatch(addSearchHistory(form.search));
     dispatch(setLastQuery(form.search));
   };
-
-  const validate = () => {
-    if (!!+form.search) {
-      setErrorMessage(`Query can't be a number.`);
-    } else {
-      if (form.search.trim() === "") {
-        setErrorMessage(`Cannot be blank space.`);
-      } else {
-        setErrorMessage(null);
-      }
-    }
-  };
-
-  useEffect(() => {
-    validate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form]);
 
   // TODO: Implement auto search
   // useEffect(() => {
