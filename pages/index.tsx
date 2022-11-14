@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useLazyGetPlacesSearchQuery } from "../store/api/slice";
 import { useAppSelector } from "../store/hooks";
-import { Card, SearchBar } from "../ui/components";
+import { Card, Form, SearchBar } from "../ui/components";
 
 import styles from "./styles.module.scss";
 import { CardLoader } from "../ui/components/Card";
