@@ -4,6 +4,7 @@ import Card from "./Card";
 import CommentCard from "./CommentCard";
 import Container from "./Container";
 import Footer from "./Footer";
+import Form from "./Form";
 import Gallery from "./Gallery";
 import Icon from "./Icon";
 import Input from "./Input";
@@ -21,6 +22,7 @@ export {
   CommentCard,
   Container,
   Footer,
+  Form,
   Gallery,
   Icon,
   Input,

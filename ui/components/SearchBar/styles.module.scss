@@ -24,4 +24,8 @@
   &__labels {
     @apply flex gap-2;
   }
+
+  &__message {
+    @apply text-sm text-red-500;
+  }
 }
